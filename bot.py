@@ -13,8 +13,7 @@ logger = logging.getLogger(__name__)
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('Hey this is your bot!')
-
+    update.message.reply_text('Здравствуйте, я чат-бот проекта "Поехали", для регистрации в проекте отпрвьте мне в чат свой логин в Инстаграмме.')
 
 def help(update, context):
     """Send a message when the command /help is issued."""
@@ -23,15 +22,17 @@ def help(update, context):
 def piracy(update, context):
     update.message.reply_text('Ahhan, FBI wants to know your location!')
 
-
 def echo(update, context):
     """Echo the user message."""
-    update.message.reply_text(update.message.text)
-
+    update.message.reply_text('Чтобы подтвердить участие в Маршруте отпрвьте "Да" ко мне в чат')
 
 def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
+
+def agree(update, context):
+    """agree"""
+    update.message.reply_text('test')
 
 
 def main():
@@ -48,7 +49,8 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("piracy", piracy))
-
+    dp.add_handler(CommandHandler("agree", agree))
+    
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
 
