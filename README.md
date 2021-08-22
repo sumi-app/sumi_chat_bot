@@ -1,1 +1,1 @@
-# sumi_chat_bot
+# SUMI Telegram bot
