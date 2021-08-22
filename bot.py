@@ -13,18 +13,19 @@ logger = logging.getLogger(__name__)
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('Здравствуйте, я чат-бот проекта "Поехали", для регистрации в проекте отпрвьте мне в чат свой логин в Инстаграмме.')
+    update.message.reply_text('Здравствуйте, я чат-бот проекта "Поехали".\nДля регистрации в проекте отпрвьте мне в чат свой логин в Инстаграмме.')
 
 def help(update, context):
-    """Send a message when the command /help is issued."""
     update.message.reply_text('Currently I am in Alpha stage, help me also!')
 
 def piracy(update, context):
     update.message.reply_text('Ahhan, FBI wants to know your location!')
 
 def echo(update, context):
-    """Echo the user message."""
-    update.message.reply_text('Чтобы подтвердить участие в Маршруте отпрвьте "Да" ко мне в чат')
+    if update.message.text == "Да":
+        update.message.reply_text('Спасибо за регистрацию в проекте!\nПодробную информацию вы можете получить у нас в боте.\nУзнать список команд - /help')
+    else:
+        update.message.reply_text('Чтобы подтвердить участие в Маршруте отпрвьте "Да" ко мне в чат')
 
 def error(update, context):
     """Log Errors caused by Updates."""
