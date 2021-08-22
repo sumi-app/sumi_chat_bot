@@ -31,9 +31,9 @@ def error(update, context):
     """Log Errors caused by Updates."""
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
-def agree(update, context):
-    """agree"""
-    update.message.reply_text('test')
+def info(update, context):
+    """Info"""
+    update.message.reply_text('Это телеграмм бот проекта Самарской области "Поехали"')
 
 
 def main():
@@ -50,7 +50,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
     dp.add_handler(CommandHandler("piracy", piracy))
-    dp.add_handler(CommandHandler("agree", agree))
+    dp.add_handler(CommandHandler("info", info))
     
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
